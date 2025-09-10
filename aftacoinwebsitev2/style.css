@@ -1,0 +1,450 @@
+/* General Body and Typography */
+:root {
+    --red: #D7263D;
+    --gold: #FFC300;
+    --green: #228B22;
+    --dark-bg: #121212;
+    --light-text: #E0E0E0;
+    --card-bg: #1E1E1E;
+    
+    /* Modern Tokenomics Colors */
+    --color-community: #34D399; /* A vibrant green */
+    --color-founders: #F87171;  /* A soft red */
+    --color-ecosystem: #FBBF24; /* A bright gold/orange */
+    --color-reserve: #9CA3AF;   /* A cool gray */
+    --color-charity: #DC2626;   /* A strong red */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation and Header */
+header {
+    background-color: var(--dark-bg);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--gold);
+}
+
+/* Main Content and Sections */
+main {
+    padding-top: 60px; /* Offset for fixed header */
+    min-height: calc(100vh - 120px);
+}
+
+.page {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Essential for positioning the slideshow */
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Puts images behind content */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative; /* Puts content on top of images */
+    z-index: 2;
+    padding: 0 2rem;
+    text-align: center;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--light-text);
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+/* Add a semi-transparent overlay to make text more readable */
+.slideshow-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--green);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--red);
+}
+
+/* Page Content Styling */
+.content {
+    background-color: var(--card-bg);
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--red);
+    padding-left: 1rem;
+}
+
+.content h3 {
+    color: var(--green);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.content ul {
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+.content ul li {
+    background-color: var(--dark-bg);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border-left: 3px solid var(--gold);
+}
+
+/* Blog Posts */
+.blog-post {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.blog-post:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.blog-post h3 {
+    font-size: 1.5rem;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+}
+
+.blog-post .meta {
+    font-size: 0.8rem;
+    color: var(--light-text);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+/* Modern Table Design */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.modern-table thead tr {
+    background-color: var(--red);
+    color: white;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--card-bg);
+}
+
+.modern-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Contact Form and Subscribe Form */
+#contactForm label,
+.subscribe-form label {
+    display: block;
+    margin-top: 1rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+#contactForm input,
+#contactForm textarea,
+.subscribe-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    background-color: var(--dark-bg);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 5px;
+    color: var(--light-text);
+    font-size: 1rem;
+}
+
+#contactForm button,
+.subscribe-form button {
+    margin-top: 1.5rem;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.subscribe-form input {
+    flex-grow: 1;
+}
+
+/* Pie Chart Animation */
+.tokenomics-section {
+    text-align: center;
+}
+
+.pie-chart-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 2rem auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.pie-chart {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: rotateChart 2s ease-in-out forwards;
+}
+
+@keyframes rotateChart {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.pie-chart-labels {
+    margin-top: 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pie-chart-labels .label {
+    display: flex;
+    align-items: center;
+}
+
+.pie-chart-labels .label::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: var(--label-color);
+    margin-right: 0.5rem;
+    border-radius: 3px;
+}
+
+/* Contact Info Styling */
+.contact-info {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-info h3 {
+    color: var(--gold);
+    border-left: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+}
+
+.contact-info a {
+    color: var(--green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--red);
+}
+
+/* Video Styling */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    background: var(--dark-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 2rem;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--light-text);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--gold);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    nav ul {
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .page {
+        padding: 2rem 1rem;
+    }
+    .content {
+        padding: 2rem;
+    }
+    .subscribe-form {
+        flex-direction: column;
+    }
+}
