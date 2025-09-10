@@ -1,0 +1,2 @@
+# aftacoin
+aftacoin
